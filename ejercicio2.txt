@@ -1,0 +1,63 @@
+<canvas id='tablero'  width=500 height = 450></canvas>
+<script>
+    function rotacionPunto(cxOb,cyOb,rot){
+  var mr = [[Math.cos(r),-Math.sin(r)].[Math.cos(r)]] ;  //Matriz 2x2  
+}
+    function rotacionObj(obj,r){
+ var s = [];  //variable para guardar el resultado
+    
+     for (var i=0; i < v1.length; i+=2){
+        var pr = rotacionPunto(obj[i],obj[i+1],r);
+         s[i] = pr[i % 2 == 0 ? 0:1];
+}
+
+     return s;
+}
+   function polygon(cd,colorBorde, colorRelleno, grosorLinea){
+}
+	function triangulo(cd,colorBorde,colorRelleno,grosor){
+	ctx.beginPath();
+	ctx.strokeStyle = colorBorde;
+	ctx.fillStyle=colorRelleno;
+	ctx.lineWidth= grosor;
+	ctx.moveTo(cd[0],cd[1]);
+	ctx.lineTo(cd[2],cd[3]);
+	ctx.lineTo(cd[4],cd[5]);
+	ctx.closePath();
+	ctx.stroke();
+	ctx.fill();
+
+}
+function recorte(arr){
+	ctx.beginPath();
+	ctx.moveTo(arr[0],arr[1]);
+	ctx.lineTo(arr[2],arr[3]);
+	ctx.lineTo(arr[4],arr[5]);
+	ctx.clip();
+}
+	var c = document.getElementById('tablero')
+	var ctx = c.getContext('2d')
+	
+	var [azul, rosado, amarillo] = ['rgba(68,114,196)','rgba(248,203,173)','rgba(255,255,0)'];
+	var trAzul =[3,243,21,143,420,273], trRosado = [3,323,78,390,321,51], trAmarillo = [300,416,395,380,197,10];
+	triangulo(trAzul, 'gray',azul);
+	triangulo(trRosado, 'gray',rosado);
+	recorte([300,416,395,380,197,10]);
+	triangulo([300,416,395,380,197,10], 'gray',amarillo);
+	triangulo(trAzul,'gray',azul)
+   
+
+
+        var c = document.getElementById('tablero')
+	var ctx = c.getContext('2d')
+
+        var letra_e = [0,0,0,50,40,50,40,40,10,40,10,30,20,30,20,20,10,20,10,10,40,10,40,0];
+
+        var r = Math.Pi/6; //angulo de rotacion  
+
+        var letra_e_rotada = rotacion(letra_e, r)
+
+        polygon(letra_e, 'magenta', 'magenta');
+        polygon(letra_e_rotada, 'magenta', 'magenta');
+
+</script>
