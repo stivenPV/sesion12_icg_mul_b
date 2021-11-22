@@ -1,0 +1,37 @@
+< canvas  id = ' tablero ' width = 500  height = 450 > </ canvas >
+< guión >
+función  sumatrasl ( v1 , v2 )
+{
+ var  s =  [ ]  ;  // variable para guardar el resultado final
+ para ( var  i = 0 ; i < v1 . longitud ; i ++ )
+{
+s [ i ] =  v1 [ i ] + v2 [ i % 2 == 0 ? 0 : 1 ] ;
+}
+ return  s ; 
+}
+función  polígono ( cd ,  colorBorde ,  colorRelleno ,  grosorLinea )  {    // a = [20, 12, 34, 56, 78, 90, 112, 167, 34, 56]
+  ctx . beginPath ( )
+  ctx . strokeStyle  =  colorBorde ;
+  ctx . fillStyle  =  colorRelleno ;
+  ctx . lineWidth =  grosorLinea ;
+  ctx . moveTo ( cd [ 0 ] , cd [ 1 ] )
+  para  ( i = 2 ;  i  <  cd . longitud ;  i + = 2 )
+  ctx . lineTo ( cd [ i ] , cd [ i + 1 ] ) ;
+  ctx . closePath ( )
+  ctx . trazo ( )
+  ctx . llenar ( )
+}
+
+
+  var  c  =  documento . getElementById ( 'tablero' )
+  var  ctx  =  c . getContext ( '2d' )
+
+
+
+  
+ var  letra_e =  [ 0 , 0 , 0 , 50 , 40 , 50 , 40 , 40 , 10 , 40 , 10 , 30 , 20 , 30 , 20 , 20 , 10 , 20 , 10 , 10 , 40 , 10 , 40 , 0 ] ;
+ var  vt = [ 60 , 90 ] ; // vector de traslacion
+ var  letra_e_trasladada =  sumatrasl ( letra_e  ,  vt )
+ polígono ( letra_e ,  'magenta' ,  'magenta' ) ;
+ polígono ( letra_e_trasladada ,  'verde' ,  'verde' ) ;
+</ script >

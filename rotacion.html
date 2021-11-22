@@ -1,0 +1,49 @@
+< canvas  id = ' tablero ' width = 500  height = 450 > </ canvas >
+< guión >
+función  sumatrasl ( v1 , v2 )
+{
+ var  s =  [ ]  ;  // variable para guardar el resultado final
+ para ( var  i = 0 ; i < v1 . longitud ; i ++ )
+< canvas  id = ' tablero ' width = 500  height = 450 > </ canvas >
+< guión >
+función  rotacionPunto ( cxOb , cyOb ,  rot )
+{
+var  mr = [ [ Math . cos ( r ) , - Matemáticas . sin ( r ) ] , [ Math . sin ( r ) , Matemáticas . cos ( r ) ] ] ;
+}
+función  rotacionobj ( obj , r )
+{
+ var  s =  [ ]  ;  // variable para guardar el resultado final
+ 
+ para ( var  i = 0 ; i <  obj . longitud ; i ++ )
+{
+var  pr =  rotacionPunto ( obj [ i ] ,  obj [ i + 1 ] , r )
+s [ i ] =  pr [ i == 0 ? 0 : 1 ] ;
+}
+ return  s ; 
+}
+función  polígono ( cd ,  colorBorde ,  colorRelleno ,  grosorLinea )  {    // a = [20, 12, 34, 56, 78, 90, 112, 167, 34, 56]
+  ctx . beginPath ( )
+  ctx . strokeStyle  =  colorBorde ;
+  ctx . fillStyle  =  colorRelleno ;
+  ctx . lineWidth =  grosorLinea ;
+  ctx . moveTo ( cd [ 0 ] , cd [ 1 ] )
+  para  ( i = 2 ;  i  <  cd . longitud ;  i + = 2 )
+  ctx . lineTo ( cd [ i ] , cd [ i + 1 ] ) ;
+  ctx . closePath ( )
+  ctx . trazo ( )
+  ctx . llenar ( )
+}
+
+
+  var  c  =  documento . getElementById ( 'tablero' )
+  var  ctx  =  c . getContext ( '2d' )
+
+
+
+  
+ var  letra_e =  [ 0 , 0 , 0 , 50 , 40 , 50 , 40 , 40 , 10 , 40 , 10 , 30 , 20 , 30 , 20 , 20 , 10 , 20 , 10 , 10 , 40 , 10 , 40 , 0 ] ;
+ var  r =  Matemáticas . PI / 6 ; // vector de traslacion
+ var  letra_e_rotada =  rotacionobj ( letra_e  ,  r )
+ polígono ( letra_e ,  'magenta' ,  'magenta' ) ;
+ polígono ( letra_e_rotada ,  'verde' ,  'verde' ) ;
+</ script >
